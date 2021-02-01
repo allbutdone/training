@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #e6e6e6;
+  font-family: "Raleway";
+}
+
+.card {
+  width: 400px;
+  margin: 75px auto 0;
+  box-shadow: 0 3px 30px rgba(0, 0, 0, 0.14);
+  color: #444;
+  background-color: #fff;
+  text-align: center;
+  font-size: 16px;
+}
+
+.card-header {
+  height: 50px;
+  position: relative;
+}
+.card .card-header .profile-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 6px solid rgb(216, 216, 216);
+  box-shadow: 0 0 20 rgba(0, 0, 0, 0.2);
+}
+
+.card .card-body {
+  padding: 10px 40px;
+}
+
+.card .card-body .name {
+  font-weight: 600;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+.card .card-body .username {
+  font-size: 13px;
+  margin: 5px 0 0;
+  color: #777;
+}
+.card .card-body .city {
+  font-weight: 600;
+  margin: 10px 0 0;
+}
+
+.card .card-body .desc {
+  line-height: 24px;
+}
+.card .card-body .social-icon {
+  font-size: 18px;
+  margin: 0 7px;
+}
+
+.card .card-body .social-icon.facebook {
+  color: #3b5999;
+}
+.card .card-body .social-icon.twitter {
+  color: #55acee;
+}
+.card .card-body .social-icon.tumblr {
+  color: #34465d;
+}
+.card .card-body .social-icon.youtube {
+  color: #cd201f;
+}
+.card .card-body .social-icon.linkedin {
+  color: #0077b5;
+}
+.card .card-body .social-icon.google-plus {
+  color: #dd4b39;
+}
+
+.card .card-footer {
+  display: table;
+  width: 100%;
+  border-top: 1px solid #e6e6e6;
+}
+
+.card .card-footer .col {
+  display: table-cell;
+  padding: 10px 5px;
+  font-size: 15px;
+}
+
+.card .card-footer .count {
+  font-size: 18px;
+  font-weight: 600;
+}
+.br {
+  border-right: 1px solid #e6e6e6;
+}
+
+@media screen and (max-width: 575px) {
+  .card {
+    width: 96%;
+  }
+  .card .card-body {
+    padding: 10px 20px;
+  }
+  .card .card-footer .count {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
