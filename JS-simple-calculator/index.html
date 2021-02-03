@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple calculator</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Simple calculator</h2>
+        <input type="text" name="num-one" id="num-one">
+        <input type="text" name="num-two" id="num-two">
+        <br>
+        <input type="radio" name="sign-area" id="box1" value="add" checked><b>+</b>
+        <input type="radio" name="sign-area" id="box2" value="subtract"><b>-</b>
+        <input type="radio" name="sign-area" id="box3" value="multiply"><b>*</b>
+        <input type="radio" name="sign-area" id="box4" value="divide"><b>/</b>
+        <br>
+
+        <button type="button" onclick="outcome()">Calculate</button>
+
+        <h1 id="result">Result</h1>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script src="main.js"></script>
+</body>
+
+</html>
