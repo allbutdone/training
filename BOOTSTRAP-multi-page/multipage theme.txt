@@ -1,0 +1,14 @@
+showcase with carousel
+
+video section
+
+photo gallery
+
+newsletter
+
+page header
+
+service page with FAQ accordion
+
+blog page with cards
+

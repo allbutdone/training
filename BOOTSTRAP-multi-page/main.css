@@ -1,0 +1,116 @@
+body {
+  overflow-x: hidden;
+}
+
+.navbar .nav-link {
+  font-size: 14px;
+  text-transform: uppercase;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important ;
+}
+
+.navbar .nav-item.active {
+  border-left: rgb(245, 159, 0) 3px solid;
+}
+
+.carousel-item {
+  height: 250px;
+}
+
+.icon-orange {
+  color: orange;
+  margin-bottom: 2px;
+}
+#heading-home {
+  position: relative;
+  min-height: 200px;
+  background: url("img/lights.jpg");
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: #fff;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#video-play {
+  position: relative;
+  min-height: 200px;
+  background: url("img/lights.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 0 -100px;
+  text-align: center;
+  color: #fff;
+}
+
+#video-play a {
+  color: #fff;
+}
+
+/* ABOUT SECTION */
+
+/* scroll bar */
+.scroll-bar {
+  height: 0.5vh;
+  width: 0%;
+  background-color: orange;
+  transition: 0.6s linear;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.icon-color {
+  color: orange;
+}
+/* info 
+remove display*/
+.info-heading {
+  color: orange;
+  display: none;
+}
+
+#page-header {
+  height: 200px;
+  background: url("img/image1.jpg");
+  background-position: 0 -360px;
+  background-attachment: fixed;
+  color: #fff;
+  border-bottom: 1px #eee solid;
+  padding-top: 50px;
+}
+
+.about-img {
+  margin-top: -50px;
+}
+
+#page-header1 {
+  height: 200px;
+  background: url("img/g4.jpg");
+  background-position: 0 -20px;
+  background-attachment: fixed;
+  color: #fff;
+  border-bottom: 1px #eee solid;
+  padding-top: 50px;
+  position: relative;
+}
+
+/*p photo gallery */
+
+.orange {
+  color: orange;
+}
+/* footer */
+
+#main-footer {
+  color: white;
+  background: #000;
+}
