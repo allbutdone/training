@@ -108,6 +108,9 @@ remove display*/
 .orange {
   color: orange;
 }
+.bg-orange {
+  background-color: orange;
+}
 /* footer */
 
 #main-footer {
