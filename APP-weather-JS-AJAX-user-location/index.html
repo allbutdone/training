@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App weather</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <section class="app-search-section">
+        <div class="container">
+            <h6 class="heading">Weather App in JS</h6>
+            <form>
+
+                <input type="text" placeholder="Search city" autofocus>
+                <button type="submit">SUBMIT</button>
+                <span class="msg"></span>
+            </form>
+        </div>
+    </section>
+    <section class="app-result-section">
+        <div class="container">
+            <ul class="cities"></ul>
+        </div>
+    </section>
+    <section id="myicon">
+
+
+
+    </section>
+    <section style="color:white" ; class="user">
+        <p>Click the button to check weather in your location</p>
+
+        <button id="btnLocation" onclick="getLocation()">Try It</button>
+
+        <div id="userLat"></div>
+
+        <div id="userLong"></div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
