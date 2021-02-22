@@ -33,7 +33,7 @@ fetch(url)
 
 
     
- /* 
+ 
  const { main, name, sys, weather } = data;
   const icon = `https://openweathermap.org/img/wn/${
     weather[0]["icon"]
@@ -55,7 +55,7 @@ fetch(url)
   `;
   li.innerHTML = markup;
   list.appendChild(li);
-  */
+  
 
   })
   .catch(() => {

@@ -10,9 +10,25 @@
 </head>
 
 <body>
+
+
+    <section class="app-user-location">
+        <h1>Weather APP</h1>
+        <h5>Click the button to check weather in your location </h5>
+
+
+
+        <button id="btnLocation" onclick="getLocation()">Your Location</button>
+        <div id="msgErr"></div>
+
+
+        <h5>or search by cities</h5>
+    </section>
+
+
     <section class="app-search-section">
         <div class="container">
-            <h6 class="heading">Weather App in JS</h6>
+
             <form>
 
                 <input type="text" placeholder="Search city" autofocus>
@@ -26,20 +42,12 @@
             <ul class="cities"></ul>
         </div>
     </section>
-    <section id="myicon">
 
 
 
-    </section>
-    <section style="color:white" ; class="user">
-        <p>Click the button to check weather in your location</p>
 
-        <button id="btnLocation" onclick="getLocation()">Try It</button>
 
-        <div id="userLat"></div>
 
-        <div id="userLong"></div>
-    </section>
 
     <script src="main.js"></script>
 </body>

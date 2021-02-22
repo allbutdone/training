@@ -1,87 +1,127 @@
-  /*user position */
+
+  const form = document.querySelector(".app-search-section form");
+  const input = document.querySelector(".app-search-section input");
+  const msgErr=document.getElementById('msgErr');
+  const list = document.querySelector(".app-result-section .cities");
+  const msg = document.querySelector(".app-search-section .msg");
+  
+  const apiKey = "c2404c3b6309eba042cad8632694d168";
 
 
-  var x = document.getElementById("userLat");
-  var y = document.getElementById("userLong");
+  /*search by user position */
 
   function getLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-      console.log(navigator.geolocation);
+      navigator.geolocation.getCurrentPosition(showPosition,showError);
+     
      
       function showPosition(position) {
-        x.innerHTML =position.coords.latitude;
-        y.innerHTML= position.coords.longitude;
-       
-      }
+        let lat=position.coords.latitude;
+        let long= position.coords.longitude;
+
+
+
+        
+     
+
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+            fetch(url)
+             .then(response => response.json())
+             .then(data => {console.log(data)
+
+
+
+
+              const { main, name, sys, weather } = data;
+
+           
+               console.log(main.temp)
+              const li = document.createElement("li");
+              li.classList.add("city");
+              const markup = `
+                <h2 class="city-name" data-name="${name},${sys.country}">
+                  <span>${name}</span>
+                  <sup>${sys.country}</sup>
+                </h2>
+                <div class="city-temp">${Math.round(main.temp)}<sup>°C</sup>
+                </div>
+                <figure>
+                  <img class="city-icon" src=img/${
+                    weather[0]["icon"]}.png alt=${weather[0]["main"]}>
+                  <figcaption>${weather[0]["description"]}</figcaption>
+                </figure>
+              `;
+              li.innerHTML = markup;
+              list.appendChild(li);
+
+
+
+         
+           
+              
+            
+              })
+              .catch(() => {
+                msg.textContent = "Please search for a valid city";
+              });
+            
+
+      }}
+
+   
       
-    } else { 
-      x.innerHTML = "Geolocation is not supported by this browser.";
+     else { 
+      msgErr.innerHTML = "Geolocation is not supported by this browser.";
     }
   }
+
+/*handle error */
+
+  function showError(error) {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        msgErr.innerHTML = "User denied the request for Geolocation."
+        break;
+      case error.POSITION_UNAVAILABLE:
+        msgErr.innerHTML = "Location information is unavailable."
+        break;
+      case error.TIMEOUT:
+        msgErr.innerHTML = "The request to get user location timed out."
+        break;
+      case error.UNKNOWN_ERROR:
+        msgErr.innerHTML = "An unknown error occurred."
+        break;
+    }
+  }
+
+
+
+
   
 
   
   /*end user position */
 
 
-
-
- 
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  const listItems = list.querySelectorAll(".app-result-section .city");
-  let inputVal = input.value;
-
-
-  console.log(x.innerHTML);
-  console.log(y.innerHTML);
-
-
+/* search weather by cities START*/
 
  
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${x.innerHTML}&lon=${y.innerHTML}&appid=${apiKey}`;
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const listItems = list.querySelectorAll(".app-result-section .city");
+    let inputVal = input.value;
 
-
+   
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
+  
+  
   fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    
-    console.log(data)
-
-   // console.log(data.sys.country)
-   // console.log(data.weather[0]["icon"])
-   // console.log(data.wind["speed"])
-
-
- /*
-
+    .then(response => response.json())
+    .then(data => {console.log(data)
  
-const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
-
-
-fetch(url)
-  .then(response => response.json())
-  .then(data => {console.log(data)
-
-    console.log(data.sys.country)
-    console.log(data.weather[0]["icon"])
-    console.log(data.wind["speed"])
-    
-    */
-  
-  
-    
-    
-    
  
+ const { main, name, sys, weather } = data;
 
-    
- 
-/* const { main, name, sys, weather } = data;
-  const icon = `https://openweathermap.org/img/wn/${
-    weather[0]["icon"]
-  }@2x.png`;
    
   const li = document.createElement("li");
   li.classList.add("city");
@@ -93,16 +133,15 @@ fetch(url)
     <div class="city-temp">${Math.round(main.temp)}<sup>°C</sup>
     </div>
     <figure>
-      <img class="city-icon" src=${icon} alt=${weather[0]["main"]}>
+      <img class="city-icon" src=img/${
+        weather[0]["icon"]}.png alt=${weather[0]["main"]}>
       <figcaption>${weather[0]["description"]}</figcaption>
     </figure>
   `;
   li.innerHTML = markup;
   list.appendChild(li);
-  */
-  document.getElementById("myicon").innerHTML=`<h2>${data.name},${data.sys.country}</h2><img src=img/${
-    data.weather[0]["icon"]
-  }.png><p>${data.main.temp}</p><p>${data.weather[0].description}</p><p>${data.coord.lon}</p><p>${data.coord.lat}</p>`;
+  
+
   
 
   })
