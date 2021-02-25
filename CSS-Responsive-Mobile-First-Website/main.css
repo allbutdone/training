@@ -55,7 +55,7 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   height: 50vh;
-  flex: 0 1 60v;
+  flex: 0 1 60vh;
   margin: 0;
 }
 .btn {
